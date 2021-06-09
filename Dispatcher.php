@@ -1,16 +1,15 @@
 <?php
 
 namespace MVC;
-
+echo 'dispatcher<br>';
 use MVC\Request;
-
 use MVC\Router;
 
 class Dispatcher
 {
-
     private $request;
 
+    // Navigate to Controller
     public function dispatch()
     {
         $this->request = new Request();
@@ -21,17 +20,11 @@ class Dispatcher
 
         call_user_func_array([$controller, $this->request->action], $this->request->params);
     }
-
     public function loadController()
     {
-        $name = $this->request->controller . "Controller";
-        // var_dump($name);
-        $file = "MVC\\Controllers\\" . $name; //MVC\Controller\tasksController;
-        // var_dump($file);die;
-        // require($file);
+        $name = ucfirst($this->request->controller) . "Controller";
+        $file = "MVC\\Controllers\\" . $name;
         $controller = new $file();
         return $controller;
     }
-
 }
-?>
