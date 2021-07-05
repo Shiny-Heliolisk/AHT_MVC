@@ -1,5 +1,4 @@
 <?php
-
 namespace MVC\Core;
 echo 'namespace MVC\Core\model.php<br>';
 class Model
