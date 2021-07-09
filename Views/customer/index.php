@@ -2,7 +2,7 @@
 <div class="row col-md-12 centered">
     <table class="table table-striped custab">
         <thead>
-        <a href="/mvc/customer/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new customer</a>
+        <a href="/AHT_MVC/customer/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new customer</a>
         <tr>
             <th>ID</th>
             <th>Customer's name</th>
@@ -22,10 +22,10 @@
             echo "<td>" . $customer->customer_address . "</td>";
             echo "<td>" . $customer->customer_tel . "</td>";
             echo "<td class='text-center'>
-            <a class='btn btn-info btn-xs' href='/mvc/customer/edit/" . $customer->id . "' >
+            <a class='btn btn-info btn-xs' href='/AHT_MVC/customer/edit/" . $customer->id . "' >
                 <span class='glyphicon glyphicon-edit'></span> Edit
             </a> 
-            <a href='/mvc/customer/delete/" . $customer->id . "' class='btn btn-danger btn-xs'>
+            <a href='/AHT_MVC/customer/delete/" . $customer->id . "' class='btn btn-danger btn-xs'>
                 <span class='glyphicon glyphicon-remove'></span> Del
             </a>
             </td>";
