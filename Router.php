@@ -7,7 +7,7 @@ class Router
     static public function parse($url, $request)
     {
         $url = trim($url);
-        if ($url == "/mvc/") {
+        if ($url == "/AHT_MVC/") {
             $request->controller = "tasks";
             $request->action = "index";
             $request->params = [];
