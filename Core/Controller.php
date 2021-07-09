@@ -15,9 +15,13 @@ echo 'namespace MVC\Core\controller.php<br>';
         function render($filename)
         {
             extract($this->vars);
-            ob_start();
-            
-            require(ROOT . "Views/" . ucfirst(str_replace('MVC\s', '', str_replace('Controller', '', get_class($this)))) . '/' . $filename . '.php');
+            ob_start(); 
+            $stringNameModel = str_replace('Controller', '', get_class($this));
+            $dem = strrpos($stringNameModel, '\\');
+            $nameModel= substr($stringNameModel, $dem + 1);
+            // var_dump($nameModel); var_dump($filename);die;
+            require(ROOT . "Views/" . $nameModel . '/' . $filename . '.php'); 
+
             $content_for_layout = ob_get_clean();
 
             if ($this->layout == false)

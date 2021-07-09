@@ -25,6 +25,7 @@ class TasksController extends Controller
             $taskModel = new TaskModel();
             $taskModel->setTitle($_POST["title"]);
             $taskModel->setDescription($_POST["description"]);
+            
             if ($task->add($taskModel)) {
                 header("Location: " . WEBROOT . "tasks/index");
             }

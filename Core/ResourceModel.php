@@ -34,12 +34,17 @@ class ResourceModel implements ResourceModelInterface
     public function add($model)
     {
         $data = $model->getProperties();
+        // var_dump($data);die;
         $k = array_keys($data);
-        $data['created_at'] = date('Y-m-d H:i:s');
-        $data['updated_at'] = date('Y-m-d H:i:s');
+        // $data['created_at'] = date('Y-m-d H:i:s');
+        // $data['updated_at'] = date('Y-m-d H:i:s');
+        // var_dump($k);die;
+
         $dataKey = implode(" , ", $k);
         $dataValue = ":" . implode(" , :", $k);
+        // var_dump($dataValue);die;
         $sql = "INSERT INTO $this->table ($dataKey) VALUES ($dataValue)";
+        // var_dump($sql);die;
 		$req = Database::getBdd()->prepare($sql);
 		return $req->execute($data);
     }
@@ -47,8 +52,8 @@ class ResourceModel implements ResourceModelInterface
     {
         $data = $model->getProperties();
         $k = array_keys($data);
-        unset($arrModel["created_at"]);
-        $data['updated_at']=date('Y-m-d H:i:s');
+        // unset($arrModel["created_at"]);
+        // $data['updated_at']=date('Y-m-d H:i:s');
         $dataKey = implode(" , ", $k);
         $str = "";
         foreach ($k as $key => $value) {
